@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require_relative '../lib/dingy'
+
 now = ENV['NOW']
 ring_time = File.read('next-alarm.txt')
 puts ring_time
