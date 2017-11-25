@@ -33,12 +33,12 @@ end
 describe 'walking skeleton' do
   it do
     env = {}
-    env['NOW'] = 'pluto'
-    File.write('next-alarm.txt', 'paperino')
+    env['NOW'] = '9:00'
+    File.write('next-alarm.txt', '9:25')
 
     out, _ = Open3.capture2e env, 'bin/dingy'
 
-    expect(out.chomp).to eq('paperino')
+    expect(out.chomp).to eq('9:25')
   end
   require 'open3'
 end
