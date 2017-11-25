@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 require_relative '../lib/dingy'
 
-now = ENV['NOW']
-ring_time = File.read('next-alarm.txt')
-puts ring_time
+now = ENV['NOW'] || Time.now.to_s
+if ARGV.first == '--start'
+  File.write('next-alarm.txt', Time.parse(now)+25*60)
+else
+  ring_time = File.read('next-alarm.txt')
+  puts formatted_remaining_time ring_time, now
+end
